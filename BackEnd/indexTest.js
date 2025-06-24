@@ -25,6 +25,10 @@ server.get('/', (req, res) => {
   return res.json({ mensagem: 'Servidor está rodando!' });
 });
 
+// Testar GET saudacao
+server.get('/saudacao', (req, res) => {
+  return res.json({ mensagem: "Bem-vindo à API de exemplo" });
+});
 // GET /db – listar todos os dados
 server.get('/db', (req, res) => {
   const dados = lerDB();
