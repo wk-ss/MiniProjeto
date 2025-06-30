@@ -17,6 +17,16 @@ exports.getUsuarios = (req, res) => {
   res.json(usuarios);
 };
 
+exports.getUsuarioPorId = (req, res) => {
+  const usuarios = loadUsers();
+  const { id } = req.params;
+  const usuario = usuarios.find(u => u.id === parseInt(id));
+  if (!usuario) {
+    return res.status(404).json({ erro: 'Usuário não encontrado.' });
+  }
+  res.json(usuario);
+};
+
 exports.createUsuario = (req, res) => {
   const usuarios = loadUsers();
   const { nome, email } = req.body;
